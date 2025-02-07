@@ -1,42 +1,33 @@
-import { resolve } from 'path';
 import express from 'express';
 import createDebug from 'debug';
-import morgan from 'morgan';
-import cors from 'cors';
-import {
-    getIndexController,
-    notFoundController,
-    postController,
-} from './controllers/controllers.js';
-import { logger } from './middleware/logger.js';
-import { errorManager } from './errors/errors.js';
-import { usersRouter } from './routers/user.routers.js';
 
 export const app = express();
 const debug = createDebug('demo:app');
 
+debug('Iniciando App...');
+app.disable('x-powered-by');
+
+import { resolve } from 'path';
+import morgan from 'morgan';
+import cors from 'cors';
+import { debugLogger } from './middleware/debug-logger.js';
+import {
+    notFoundController,
+    notMethodController,
+} from './controllers/base-controller.js';
+import { errorManager } from './errors/error-manager.js';
+
 const __dirname = resolve();
 const publicPath = resolve(__dirname, 'public');
 
-debug('Iniciando App...');
-
-app.disable('x-powered-by');
-
+// Middlewares
 app.use(cors());
-
 app.use(morgan('common'));
 app.use(express.json());
-app.use(logger('debugger'));
+app.use(debugLogger('debug-logger'));
 app.use(express.static(publicPath));
 
-app.get('/', getIndexController);
-app.get('/about', getIndexController);
-app.get('/contacts', getIndexController);
-app.post('/contacts', postController);
-app.get('/portfolio', getIndexController);
-
-app.use('/api/users', usersRouter);
-
-app.use('*', notFoundController);
+app.get('*', notFoundController);
+app.use('*', notMethodController);
 
 app.use(errorManager);

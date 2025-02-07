@@ -1,15 +1,17 @@
+import { renderMenu } from './menu.js';
 import { menuItems } from './header.js';
-// import { html } from 'lit-html';
 
-export function createDialogNav() {
-    const template = `
+const html = String.raw;
+
+export function renderDialogNav() {
+    const template = html`
         <dialog>
             <p class="close">
                 <button class="fa-solid fa-xmark"></button>
             </p>
             <nav class="h5">
                 <ul>
-                    ${menuItems}
+                    ${renderMenu(menuItems)}
                 </ul>
             </nav>
         </dialog>

@@ -1,24 +1,22 @@
-const items = [
-    { label: 'Index', path: './' },
-    { label: 'Portfolio', path: './portfolio' },
-    { label: 'Contacts', path: './contacts' },
+import { renderMenu } from './menu.js';
+
+const html = String.raw;
+
+export const menuItems = [
+    { label: 'Inicio', path: './' },
+    { label: 'Productos', path: './portfolio' },
     { label: 'About', path: './about' },
 ];
 
-export const menuItems = items
-    .map(
-        (item) => `
-            <li class="menu-tablet">
-                <a href="${item.path}">${item.label}</a>
-            </li>
-        `
-    )
-    .join('');
+export type MenuItem = {
+    label: string;
+    path: string;
+};
 
-export function createHeader(title: string) {
-    const img = './assets/logo-golden-bisque.svg';
+export function renderHeader(title: string) {
+    const img = './assets/logo-brown-bisque.svg';
     const cssClass = 'main-header';
-    const headerTemplate = `
+    const headerTemplate = html`
         <header class="${cssClass}">
             <nav>
                 <ul>
@@ -35,7 +33,7 @@ export function createHeader(title: string) {
                             <span class="fa-solid fa-bars"></span>
                         </a>
                     </li>
-                    ${menuItems}
+                    ${renderMenu(menuItems)}
                 </ul>
             </nav>
         </header>
