@@ -1,6 +1,6 @@
 export const demoButton = () => {
     document.querySelector('button').addEventListener('click', () => {
-        const server = 'http://localhost:3000';
+        const server = 'http://localhost:8080';
         fetch(`${server}/`, {
             method: 'POST',
             headers: {
