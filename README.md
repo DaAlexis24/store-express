@@ -128,3 +128,19 @@
 3. Escribe el siguiente comando en la terminal: `npm install`
 4. Coloca en la terminal `npm run build` para así inicializar tu terminal **build** y otorga la siguiente configuración: Color azul, logo de un reinicio y nombre: **build (tst)**
 5. Crea el repositorio de **Git** y realiza el **Initial Commit**
+
+## Creación del Backend
+
+Creamos las carpetas que nos piden las instrucciones.
+
+### Creación del fichero "server.js"
+
+Dentro de la carpeta src vamos a crear el fichero **_server.ts_** y vamos a colocar ahí la configuración básica de un servidor al estilo **Express**.
+
+Luego de ello vamos a escribir en la terminal `npm run start:dev` y comprobamos si funciona abriendo **<http://localhost:3000/>** en el navegador. Si todo está correcto, habremos creado nuestra terminal tipo **server**.
+
+El terminal lo configuraremos de la siguiente manera:
+
+- Color: rojo
+- Nombre: server
+- Icon: Uno que represente algún servidor
