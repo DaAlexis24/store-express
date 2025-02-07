@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "node dist/index.js",
-        "start:dev": "cross-env NODE_ENV=dev DEBUG=demo* node --watch --env-file=.env ./dist/index.js",
+        "start": "node dist/server.js",
+        "start:dev": "cross-env NODE_ENV=dev DEBUG=demo* node --watch --env-file=.env ./dist/server.js",
         "build": "tsc -w",
         "test": "vitest run",
         "test:c": "vitest run --coverage",
