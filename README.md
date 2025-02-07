@@ -4,23 +4,23 @@
 
 1. Crear un nuevo proyecto de Express.
 2. Páginas:
-   1. Home - Página principal (semi estática) / Landing Page
-   2. Productos -> Listado de productos (dinámico)
-   3. Array de productos
-   4. Productos/:id - Detalle de producto (dinámico)
-   5. About - Fichero html
+   - Home - Página principal (semi estática) / Landing Page
+   - Productos -> Listado de productos (dinámico)
+   - Array de productos
+   - Productos/:id - Detalle de producto (dinámico)
+   - About - Fichero html
 3. Crear proyecto con Express
-   1. Crear server.js
-   2. Crear app.js
-   3. Orden de Carpetas
-      1. public
-      2. src
-         1. [models]
-         2. controllers
-         3. views
-         4. routes
-         5. middlewares
-         6. errors
+   - Crear server.js
+   - Crear app.js
+   - Orden de Carpetas
+     - public
+     - src
+       - [models]
+       - controllers
+       - views
+       - routes
+       - middlewares
+       - errors
 4. Fase 2
    1. Añadir Crear un producto con un formulario
    2. Añadir un formulario para editar un producto
@@ -75,7 +75,7 @@
 15. Coloca en la terminal `npm run build` para así inicializar tu terminal **build** y otorga la siguiente configuración: Color azul, logo de un reinicio y nombre: **build (tst)**
 16. Crea el repositorio de **Git** y realiza el **Initial Commit**
 
-### Pasos resumidos
+### Simplificación de pasos
 
 1. Crea un proyecto de **Node**: `npm init -y`
 2. Cambia el contenido del **_package.json_** con lo siguiente:
@@ -126,3 +126,5 @@
    ```
 
 3. Escribe el siguiente comando en la terminal: `npm install`
+4. Coloca en la terminal `npm run build` para así inicializar tu terminal **build** y otorga la siguiente configuración: Color azul, logo de un reinicio y nombre: **build (tst)**
+5. Crea el repositorio de **Git** y realiza el **Initial Commit**
