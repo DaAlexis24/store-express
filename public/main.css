@@ -9,7 +9,7 @@ nav {
     margin: 0 auto;
 }
 
-header {
+body > header {
     padding-block: var(--space);
     padding-inline: var(--space-double);
     color: var(--color-secondary-gray);
@@ -97,7 +97,7 @@ dialog {
 }
 
 @media (width > 470px) {
-    header {
+    body > header {
         .menu-mobile {
             display: none;
         }
@@ -125,7 +125,7 @@ dialog {
 }
 
 @media (width > 650px) {
-    header {
+    body > header {
         nav ul {
             flex-wrap: nowrap;
             align-items: center;
@@ -188,16 +188,71 @@ dl {
     }
 }
 
-section.players {
-    display: flex;
-    flex-direction: column;
-
-    label {
+section.products {
+    header {
         display: flex;
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-double);
+        padding: var(--space);
+        border-bottom: 1px solid var(--color-secondary-background-gray);
+        button {
+            padding: var(--space-half) var(--space);
+        }
+    }
 
-        span {
-            flex-basis: 10rem;
+    div.products-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+        grid-template-rows: 1fr;
+        gap: var(--space);
+        padding: var(--space);
+        justify-content: center;
+        align-items: center;
+
+        article {
+            border: 1px solid var(--color-secondary-background-gray);
+            padding: var(--space);
+            display: grid;
+            grid-template-rows: 1fr;
+            gap: var(--space-half);
+            justify-items: center;
+            align-items: center;
+            img {
+                height: 10rem;
+                width: 15rem;
+                object-fit: cover;
+                object-position: top;
+            }
+            h3 {
+                font-size: var(--small);
+                text-align: center;
+            }
+            p {
+                font-size: var(--small);
+                text-align: center;
+            }
+            div {
+                display: flex;
+                justify-content: center;
+                gap: var(--space-half);
+
+                button {
+                    width: 7rem;
+                    padding: var(--space-half) var(--space);
+                }
+            }
+        }
+    }
+
+    dialog {
+        div.dialog-content {
+            text-align: center;
+            height: 90%;
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: var(--space);
+            place-content: center;
         }
     }
 }

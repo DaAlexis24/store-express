@@ -46,8 +46,7 @@ export abstract class BasePage {
                 ${renderHead(this.title)}
                 <body>
                     ${renderHeader(this.pageTitle)} ${renderDialogNav()}
-                    <main>${this.renderMain(pageContent)}</main>
-                    ${renderFooter()}
+                    ${this.renderMain(pageContent)} ${renderFooter()}
                 </body>
             </html>
         `;
