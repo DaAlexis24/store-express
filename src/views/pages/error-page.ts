@@ -1,30 +1,20 @@
-import { renderHeader } from '../partials/header.js';
-import { renderHead } from '../partials/head.js';
-import { renderFooter } from '../partials/footer.js';
-import { renderDialogNav } from '../partials/dialog-nav.js';
 import { BasePage } from './base-page.js';
-
-const html = String.raw;
+import createDebug from 'debug';
+const debug = createDebug('demo:views:error-page');
+debug('Loaded module');
 
 export class ErrorPage extends BasePage {
-    static override render = (errorMessage?: string) => {
-        errorMessage = errorMessage || 'Error desconocido';
+    constructor(protected title = 'Error | Demo Products') {
+        super(title);
+    }
 
-        const title = 'Inicio | Demo Products';
-        const pageTitle = 'Products';
+    override render(info?: Record<string, unknown>) {
+        debug('Iniciando render');
+        info = {
+            mainTitle: 'Página de error',
+            mainContent: info?.errorMessage || 'Error desconocido',
+        };
 
-        return html`
-            <!DOCTYPE html>
-            <html lang="en">
-                ${renderHead(title)}
-                <body>
-                    ${renderHeader(pageTitle)} ${renderDialogNav()}
-                    <main>
-                        ${this.renderMain('Página de error', errorMessage)}
-                    </main>
-                    ${renderFooter()}
-                </body>
-            </html>
-        `;
-    };
+        return super.render(info);
+    }
 }

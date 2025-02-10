@@ -144,3 +144,21 @@ El terminal lo configuraremos de la siguiente manera:
 - Color: rojo
 - Nombre: server
 - Icon: Uno que represente algún servidor
+
+## Notas clase
+
+Fichero index/server.ts:
+
+- Tiene un `const server = createServer()`
+- Este `server` utilizará el método `.listen` para escuchar cual es el puerto que utilizaremos para apalancar el server.
+- `server.on()` sirve para registrar un evento, es similar a AddEventListener pero no te da ningún parámetro. Se ejecutan cuando se cumplen las condiciones.
+  - `() => listenManager(server)` es una función anónima que está hecha para recibir server, funcionando como si fuera un parámetro más de `.on`, realizando una abstracción
+  - `errorManager` es un callback, por ello no necesitamos envolverla en una función anónima.
+
+app.ts:
+
+- Tiene un `export const app = express()` ya que se exportará al archivo **index/server** para que sea la base del servidor.
+
+En sí se puede obviar esta división en 2 capas, ya que **app** tiene en si el servidor, así que también puede invocar al método `.listen`, esto se puede hacer por confort de conceptos, ya que estos métodos hacen dos cosas distintas: index levanta el servidor y app coge atributos de un server
+
+A la hora de realizar importaciones es recomendable hacerlo con funciones o clases, para evitar problemas de llegada y ejecución anticipada. Para ello se encapsula **app**
